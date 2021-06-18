@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+<div class="card">
+    <div class="card-header">
+        <div class="card-header-title">
+            <h1>Login</h1>
+        </div>
+
+    </div>
+    <div class="card-content">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{form|crispy}}
+            <br>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Sign Up</button>
+            </div>
+        </form>
+    </div>
+    <br>
+    <div class="card-footer">
+        <div class="card-footer-item">
+            <small>Already have an account login here <a href="{%url 'login' %}">Login</a> </small>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock content%}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<div class="container mb-5">
+    
+    <div class="row">
+        <div class="col-sm-8">
+            <h4 class="text-center mb-3"><u>Resume Details</u></h4>
+            <form action="" method="post" enctype="multipart/form-data" class="shadow p-5">
+                {% csrf_token %}
+                {{form| crispy}}
+                <br>
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </form>
+        </div>
+        <div class="col-sm-4">
+           <h4 class="text-center mb-3"><u>List of Candidate</u></h4>
+           {% for i in obj %}
+             <a href="{%url 'detail' i.id %}">{{i.name}}</a>  <hr>
+           {% endfor %}
+        </div>
+    </div>
+
+</div>
+
+{% endblock content%}

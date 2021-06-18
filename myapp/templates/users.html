@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load myfilter %}
+{% block content %}
+  
+<div class="container">
+    <h1 class = "text-center">Candidate Details</h1>
+    <div class="row">
+        <div class="col-sm-10 shadow p-5 offset-sm-1">
+            <h3 class="text-center"><u>Resume</u></h3>
+            <p class="text-center"> <strong>Applicantion No:</strong>   {{obj.id}}</p>
+            <img src="{{obj.profile.url}}" alt="" class="img-fluid img-thumbnail float-end mt-4" width="150"
+                height="150">
+            <p><strong>Name:</strong> {{obj.name}}</p>
+            <p><strong>Date of Birth:</strong> {{obj.dob}}</p>
+            <p><strong>Gender:</strong> {{obj.gender}}</p>
+            <p><strong>Address:</strong> {{obj.city}}, {{obj.state}} - {{obj.pin}}</p>
+            <p><strong>Mobile No:</strong> {{obj.mobile}}</p>
+            <p><strong>Email ID:</strong> {{obj.email}}</p>
+            <p><strong>Preferred Job Cities:</strong> {{obj.job_city |remove_special:"[]'"}}</p>
+            <p><strong>Attachment:</strong> <a href="{{obj.files.url}}">Download File</a></p>
+            <div class="text-center">
+                <a href="{%url 'home' %}" class="btn btn-danger">Back to Home</a>
+            </div>
+    </div>
+
+</div>
+
+
+
+
+{% endblock content%}
